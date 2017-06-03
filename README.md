@@ -1,5 +1,7 @@
 # includer-cli
 
+- C Language syntax like `#include` for text file CLI tool.
+
 ```
 [Options]
     -w, --watch: watch mode(optional)
