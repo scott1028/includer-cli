@@ -32,7 +32,7 @@ let srcTpl = [
 ];
 
 gulp.task('include', function(){
-    console.log('=> source has changed!!');
+    console.log('=> source has changed!!', (new Date));
     gulp.src(srcTpl)
         .pipe(isBinary())
         .pipe(through.obj(function(file, enc, next){
