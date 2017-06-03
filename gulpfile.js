@@ -42,6 +42,7 @@ gulp.task('include', function(){
             basepath: '@file'
         }))
         .pipe(rename(function(path){
+            console.log(path);
             if(path.basename.endsWith(`.${ext}`))
                 return path.basename = path.basename.slice(0, path.basename.length - `.${ext}`.length);
             if(path.extname.endsWith(`.${ext}`))

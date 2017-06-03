@@ -1,5 +1,5 @@
 AA
-@@include('modules/_lib.jj')
+@@include('data2.tpl.txt')
 CC
 
 test
