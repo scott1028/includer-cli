@@ -22,10 +22,14 @@ let rootDir = `${cwd}/${src}`;
 let distDir = `${cwd}/${dist}`;
 
 // 
-let srcTpl = [`${rootDir}/**/*`,
-              `!${rootDir}/**/*.${ext}.*`,
-              `${rootDir}/**/.*`,
-              `!${rootDir}/**/.*.${ext}.*`,];
+let srcTpl = [
+    `${rootDir}/**/*`,
+    `${rootDir}/**/.*`,
+    `!${rootDir}/**/*.${ext}`,
+    `!${rootDir}/**/*.${ext}.*`,
+    `!${rootDir}/**/.*.${ext}`,
+    `!${rootDir}/**/.*.${ext}.*`,
+];
 
 gulp.task('include', function(){
     console.log('=> source has changed!!');
@@ -52,5 +56,9 @@ gulp.task('include', function(){
 
 // main
 gulp.task('default', ['include'], function(){
-    gulp.watch(srcTpl, ['include']);
+    gulp.watch(srcTpl.map(function(row){
+        if(row.startsWith(`!`))
+            return row.slice(1, row.length);
+        return row;
+    }), ['include']);
 });
