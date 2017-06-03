@@ -5,6 +5,7 @@ const fileinclude = require('gulp-file-include'),
       argv = require('yargs').argv,
       isBinary = require('gulp-is-binary'),
       through = require('through2'),
+      rename = require("gulp-rename"),
       gulp = require('gulp');
 
 // 
@@ -31,7 +32,7 @@ gulp.task('include', function(){
     gulp.src(srcTpl)
         .pipe(isBinary())
         .pipe(through.obj(function(file, enc, next){
-            if(file.isBinary())
+            if(file.isBinary() || file.stat.isDirectory())
                 return next();
             next(null, file);
         }))
@@ -39,12 +40,17 @@ gulp.task('include', function(){
             prefix: `${prefix}`,
             basepath: '@file'
         }))
+        .pipe(rename(function(path){
+            // TODO: Next version feature
+            // console.log([path.basename]);
+            // console.log([path.dirname]);
+            // console.log([path.extname]);
+            // return path.extname += '.tpl';
+        }))
         .pipe(gulp.dest(`${distDir}`));
 });
 
 // main
 gulp.task('default', ['include'], function(){
-    gulp.watch(srcTpl.filter(function(row){
-        return !row.startsWith('!');
-    }), ['include']);
+    gulp.watch(srcTpl, ['include']);
 });
