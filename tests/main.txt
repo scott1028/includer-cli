@@ -1,0 +1,3 @@
+AA
+@@include('data.tpl.txt')
+AAAA

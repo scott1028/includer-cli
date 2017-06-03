@@ -1,0 +1,5 @@
+AA
+@@include('data2.tpl.txt')
+CC
+
+test
