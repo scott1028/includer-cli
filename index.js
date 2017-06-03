@@ -17,15 +17,10 @@ if(argv.h || argv.help){
 `);
 };
 
-const src = argv.src || argv.s || 'src';
-const dist = argv.dist || argv.d || 'dist';
-const tpl = argv.tpl || argv.t || 'tpl';
-const gulpfile = './node_modules/includer-cli/gulpfile.js'
-const cwd = process.cwd();
-const gulp = `./node_modules/.bin/gulp`;
+require('./gulpfile.js');
+var gulpCli = require('gulp');
 
-// Main
 if(argv.watch || argv.w)
-    shell.task([`${gulp} --src=${src} --dist=${dist} --tpl=${tpl} --gulpfile=${gulpfile} --cwd=${cwd}`])();
+    gulpCli.start('default');
 else
-    shell.task([`${gulp} include --src=${src} --dist=${dist} --tpl=${tpl} --gulpfile=${gulpfile} --cwd=${cwd}`])();
+    gulpCli.start('include');

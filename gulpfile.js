@@ -5,16 +5,26 @@ const fileinclude = require('gulp-file-include'),
       argv = require('yargs').argv,
       gulp = require('gulp');
 
-const ext = argv.tpl;
-const rootDir = `${argv.cwd}/${argv.src}`;
-const distDir = `${argv.cwd}/${argv.dist}`;
+// 
+const src = argv.src || argv.s || 'src';
+const dist = argv.dist || argv.d || 'dist';
+const tpl = argv.tpl || argv.t || 'tpl';
+const gulpfile = './node_modules/includer-cli/gulpfile.js'
+const cwd = process.cwd();
 
-const srcTpl = [`${rootDir}/**/*`,
-                `!${rootDir}/**/*.${ext}.*`,
-                `${rootDir}/**/.*`,
-                `!${rootDir}/**/.*.${ext}.*`,];
+// 
+let ext = `${tpl}`;
+let rootDir = `${cwd}/${src}`;
+let distDir = `${cwd}/${dist}`;
+
+// 
+let srcTpl = [`${rootDir}/**/*`,
+              `!${rootDir}/**/*.${ext}.*`,
+              `${rootDir}/**/.*`,
+              `!${rootDir}/**/.*.${ext}.*`,];
 
 gulp.task('include', function(){
+    console.log('=> source has changed!!');
     gulp.src(srcTpl)
         .pipe(fileinclude({
             prefix: '@@',
