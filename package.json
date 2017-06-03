@@ -1,5 +1,6 @@
 {
   "name": "includer-cli",
+  "author": "scott.lan <mic1028002@gmail.com>",
   "version": "0.0.1",
   "description": "CLI for Includer",
   "main": "index.js",
@@ -13,5 +14,10 @@
     "gulp-is-binary": "^0.1.2",
     "gulp-shell": "^0.6.3",
     "through2": "^2.0.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/scott1028/includer-cli.git"
+  },
+  "license": "MIT"
 }
