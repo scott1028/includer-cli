@@ -1,3 +1,3 @@
 AA
-@@include('data.tpl.txt')
+@@include('_data.tpl.txt')
 AAAA
