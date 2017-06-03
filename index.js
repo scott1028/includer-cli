@@ -11,6 +11,7 @@ if(argv.h || argv.help){
     -s, --src: input path(default: src).
     -d, --dist: out put path(default: dist).
     -t, --tpl: skip file if filename contains tpl keyword(default: tpl).
+    -p, --prefix: include syntax prefix(default: @@), as @@include( PATH )
 
 [Note]
     no support global install. please use \`./node_modules/.bin/includer\`.

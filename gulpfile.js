@@ -10,6 +10,7 @@ const src = argv.src || argv.s || 'src';
 const dist = argv.dist || argv.d || 'dist';
 const tpl = argv.tpl || argv.t || 'tpl';
 const gulpfile = './node_modules/includer-cli/gulpfile.js'
+const prefix = argv.prefix || argv.p || '@@';
 const cwd = process.cwd();
 
 // 
@@ -27,7 +28,7 @@ gulp.task('include', function(){
     console.log('=> source has changed!!');
     gulp.src(srcTpl)
         .pipe(fileinclude({
-            prefix: '@@',
+            prefix: `${prefix}`,
             basepath: '@file'
         }))
         .pipe(gulp.dest(`${distDir}`));
