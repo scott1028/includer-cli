@@ -22,11 +22,10 @@ let rootDir = `${cwd}/${src}`;
 let distDir = `${cwd}/${dist}`;
 
 // 
-let srcTpl = [`${rootDir}/**/*.${ext}`,
-              `${rootDir}/**/.*.${ext}`,
-              `${rootDir}/**/*.${ext}.*`,
-              `${rootDir}/**/.*.${ext}.*`,
-              `!${rootDir}/**/_*`];
+let srcTpl = [`${rootDir}/**/*`,
+              `!${rootDir}/**/*.${ext}.*`,
+              `${rootDir}/**/.*`,
+              `!${rootDir}/**/.*.${ext}.*`,];
 
 gulp.task('include', function(){
     console.log('=> source has changed!!');
@@ -42,11 +41,6 @@ gulp.task('include', function(){
             basepath: '@file'
         }))
         .pipe(rename(function(path){
-            console.log(path);
-            if(path.basename.endsWith(`.${ext}`))
-                return path.basename = path.basename.slice(0, path.basename.length - `.${ext}`.length);
-            if(path.extname.endsWith(`.${ext}`))
-                return path.extname = path.extname.slice(0, path.extname.length - `.${ext}`.length);
             // TODO: Next version feature
             // console.log([path.basename]);
             // console.log([path.dirname]);
