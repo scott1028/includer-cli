@@ -3,6 +3,8 @@
 
 const fileinclude = require('gulp-file-include'),
       argv = require('yargs').argv,
+      isBinary = require('gulp-is-binary'),
+      through = require('through2'),
       gulp = require('gulp');
 
 // 
@@ -27,6 +29,12 @@ let srcTpl = [`${rootDir}/**/*`,
 gulp.task('include', function(){
     console.log('=> source has changed!!');
     gulp.src(srcTpl)
+        .pipe(isBinary())
+        .pipe(through.obj(function(file, enc, next){
+            if(file.isBinary())
+                return next();
+            next(null, file);
+        }))
         .pipe(fileinclude({
             prefix: `${prefix}`,
             basepath: '@file'
