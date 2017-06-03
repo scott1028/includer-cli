@@ -9,7 +9,10 @@ const ext = argv.tpl;
 const rootDir = `${argv.cwd}/${argv.src}`;
 const distDir = `${argv.cwd}/${argv.dist}`;
 
-const srcTpl = [`${rootDir}/**/*`, `!${rootDir}/**/*.${ext}.*`];
+const srcTpl = [`${rootDir}/**/*`,
+                `!${rootDir}/**/*.${ext}.*`,
+                `${rootDir}/**/.*`,
+                `!${rootDir}/**/.*.${ext}.*`,];
 
 gulp.task('include', function(){
     gulp.src(srcTpl)
