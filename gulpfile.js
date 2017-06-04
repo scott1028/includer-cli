@@ -6,7 +6,8 @@ const fileinclude = require('gulp-file-include'),
       isBinary = require('gulp-is-binary'),
       through = require('through2'),
       rename = require("gulp-rename"),
-      gulp = require('gulp');
+      gulp = require('gulp'),
+      colors = require('colors');
 
 // 
 const src = argv.src || argv.s || 'src';
@@ -32,7 +33,6 @@ let srcTpl = [
 ];
 
 gulp.task('include', function(){
-    console.log('=> source has changed!!', (new Date));
     gulp.src(srcTpl)
         .pipe(isBinary())
         .pipe(through.obj(function(file, enc, next){
@@ -44,6 +44,9 @@ gulp.task('include', function(){
             prefix: `${prefix}`,
             basepath: '@file'
         }))
+        .on('error', function(e){
+            console.log(`=> ${e.message}`.magenta);
+        })
         .pipe(rename(function(path){
             // TODO: Next version feature
             // console.log([path.basename]);
@@ -51,7 +54,10 @@ gulp.task('include', function(){
             // console.log([path.extname]);
             // return path.extname += '.tpl';
         }))
-        .pipe(gulp.dest(`${distDir}`));
+        .pipe(gulp.dest(`${distDir}`))
+        .on('end', function(){
+            console.log(`=> Output has changed at ${(new Date).toString()}`.cyan);
+        });
 });
 
 // main
