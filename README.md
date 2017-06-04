@@ -36,6 +36,10 @@ $ ./node_modules/.bin/includer -s src -d dist -t tpl
 ```
 # main.js
 @@include('data.tpl.txt')
+  ... or
+@@include('./.htaccess.tpl', {
+    "env": "./@@TARGET.tpl"
+})
 ```
 
 ![Alt text](https://raw.githubusercontent.com/scott1028/includer-cli/master/example.png "example.png")

@@ -50,6 +50,10 @@ beeper@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/beeper/-/beeper-1.1.1.tgz#e6d5ea8c5dad001304a70b22638447f69cb2f809"
 
+binaryextensions@~1.0.0:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/binaryextensions/-/binaryextensions-1.0.1.tgz#1e637488b35b58bda5f4774bf96a5212a8c90755"
+
 boom@2.x.x:
   version "2.10.1"
   resolved "https://registry.yarnpkg.com/boom/-/boom-2.10.1.tgz#39c8918ceff5799f83f9492a848f625add0c766f"
@@ -179,7 +183,7 @@ end-of-stream@~0.1.5:
   dependencies:
     once "~1.3.0"
 
-escape-string-regexp@^1.0.2:
+escape-string-regexp@^1.0.2, escape-string-regexp@^1.0.3:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
 
@@ -450,6 +454,14 @@ gulp-rename@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/gulp-rename/-/gulp-rename-1.2.2.tgz#3ad4428763f05e2764dec1c67d868db275687817"
 
+gulp-replace@^0.5.4:
+  version "0.5.4"
+  resolved "https://registry.yarnpkg.com/gulp-replace/-/gulp-replace-0.5.4.tgz#69a67914bbd13c562bff14f504a403796aa0daa9"
+  dependencies:
+    istextorbinary "1.0.2"
+    readable-stream "^2.0.1"
+    replacestream "^4.0.0"
+
 gulp-shell@^0.6.3:
   version "0.6.3"
   resolved "https://registry.yarnpkg.com/gulp-shell/-/gulp-shell-0.6.3.tgz#2eaa6edfffa8bdff7a8f0b9f9852876f33331c6b"
@@ -661,6 +673,13 @@ isobject@^2.0.0:
 isobject@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/isobject/-/isobject-3.0.0.tgz#39565217f3661789e8a0a0c080d5f7e6bc46e1a0"
+
+istextorbinary@1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/istextorbinary/-/istextorbinary-1.0.2.tgz#ace19354d1a9a0173efeb1084ce0f87b0ad7decf"
+  dependencies:
+    binaryextensions "~1.0.0"
+    textextensions "~1.0.0"
 
 kind-of@^3.0.2:
   version "3.2.2"
@@ -901,7 +920,7 @@ object-assign@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-3.0.0.tgz#9bedd5ca0897949bca47e7ff408062d549f587f2"
 
-object-assign@^4.1.1:
+object-assign@^4.0.1, object-assign@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
 
@@ -1007,7 +1026,7 @@ randomatic@^1.1.3:
     isarray "0.0.1"
     string_decoder "~0.10.x"
 
-readable-stream@^2.1.5, readable-stream@^2.2.2:
+readable-stream@^2.0.1, readable-stream@^2.0.2, readable-stream@^2.1.5, readable-stream@^2.2.2:
   version "2.2.10"
   resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.2.10.tgz#effe72bb7c884c0dd335e2379d526196d9d011ee"
   dependencies:
@@ -1056,6 +1075,14 @@ repeat-string@^1.5.2:
 replace-ext@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/replace-ext/-/replace-ext-0.0.1.tgz#29bbd92078a739f0bcce2b4ee41e837953522924"
+
+replacestream@^4.0.0:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/replacestream/-/replacestream-4.0.2.tgz#0c4140707e4f0323f50de044851708cf58bc37bd"
+  dependencies:
+    escape-string-regexp "^1.0.3"
+    object-assign "^4.0.1"
+    readable-stream "^2.0.2"
 
 resolve-dir@^0.1.0:
   version "0.1.1"
@@ -1147,6 +1174,10 @@ strip-bom@^1.0.0:
 supports-color@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-2.0.0.tgz#535d045ce6b6363fa40117084629995e9df324c7"
+
+textextensions@~1.0.0:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/textextensions/-/textextensions-1.0.2.tgz#65486393ee1f2bb039a60cbba05b0b68bd9501d2"
 
 through2@^0.6.1:
   version "0.6.5"

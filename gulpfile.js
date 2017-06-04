@@ -7,15 +7,16 @@ const fileinclude = require('gulp-file-include'),
       through = require('through2'),
       rename = require("gulp-rename"),
       gulp = require('gulp'),
+      replace = require('gulp-replace'),
       colors = require('colors');
 
 // 
+const cwd = process.cwd();
 const src = argv.src || argv.s || 'src';
 const dist = argv.dist || argv.d || 'dist';
 const tpl = argv.tpl || argv.t || 'tpl';
-const gulpfile = './node_modules/includer-cli/gulpfile.js'
 const prefix = argv.prefix || argv.p || '@@';
-const cwd = process.cwd();
+const match = (argv.match || argv.m || `use strict:use strict`).toString().split(`:`);
 
 // 
 let ext = `${tpl}`;
@@ -40,10 +41,12 @@ gulp.task('include', function(){
                 return next();
             next(null, file);
         }))
+        .pipe(replace(new RegExp(`${match[0]}`, 'g'), `${match[1]}`))
         .pipe(fileinclude({
             prefix: `${prefix}`,
             basepath: '@file'
         }))
+        .pipe(replace(new RegExp(`${match[0]}`, 'g'), `${match[1]}`))
         .on('error', function(e){
             console.log(`=> ${e.message}`.magenta);
         })
