@@ -13,6 +13,7 @@ if(argv.h || argv.help){
     -t, --tpl: skip file if filename contains tpl keyword(default: tpl).
     -p, --prefix: include syntax prefix(default: @@), as @@include( PATH )
     -m, --match: replace to string from input regexp pattern(ex: -m \\.scss:.css).
+    -i, --indent: apply indent for include content(default: true).
 
 [Usage]
     $ includer -s src -d dist -w

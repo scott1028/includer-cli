@@ -17,6 +17,7 @@ const dist = argv.dist || argv.d || 'dist';
 const tpl = argv.tpl || argv.t || 'tpl';
 const prefix = argv.prefix || argv.p || '@@';
 const match = (argv.match || argv.m || `use strict:use strict`).toString().split(`:`);
+const indent = eval(argv.indent || argv.i || 'true');
 
 // 
 let ext = `${tpl}`;
@@ -44,7 +45,8 @@ gulp.task('include', function(){
         .pipe(replace(new RegExp(`${match[0]}`, 'g'), `${match[1]}`))
         .pipe(fileinclude({
             prefix: `${prefix}`,
-            basepath: '@file'
+            basepath: '@file',
+            indent: indent
         }))
         .pipe(replace(new RegExp(`${match[0]}`, 'g'), `${match[1]}`))
         .on('error', function(e){
