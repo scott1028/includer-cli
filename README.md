@@ -9,6 +9,7 @@
     -s, --src: input path(default: src).
     -d, --dist: out put path(default: dist).
     -t, --tpl: skip file if filename contains tpl keyword(default: tpl).
+    -i, --indent: apply indent for include content(default: true).
 
 [Note]
     $ yarn global add includer-cli
