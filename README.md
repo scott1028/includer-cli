@@ -1,5 +1,6 @@
 # includer-cli
 
+- This Plugin Base On: https://www.npmjs.com/package/gulp-file-include
 - C Language syntax like `#include` for text file CLI tool.
 
 ```
@@ -10,7 +11,13 @@
     -t, --tpl: skip file if filename contains tpl keyword(default: tpl).
 
 [Note]
-    no support global install. please use `./node_modules/.bin/includer`
+    $ yarn global add includer-cli
+   		or ...
+   	$ yarn add includer-cli
+   		...
+   	$ includer
+   		or ...
+   	$ ./node_modules/.bin/includer
 ```
 
 # Usage
@@ -30,3 +37,5 @@ $ ./node_modules/.bin/includer -s src -d dist -t tpl
 # main.js
 @@include('data.tpl.txt')
 ```
+
+![Alt text](https://raw.githubusercontent.com/scott1028/includer-cli/master/example.png "example.png")
