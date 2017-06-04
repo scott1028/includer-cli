@@ -1,7 +1,7 @@
 {
   "name": "includer-cli",
   "author": "scott.lan <mic1028002@gmail.com>",
-  "version": "0.0.6a",
+  "version": "0.0.6b",
   "description": "CLI for Includer",
   "main": "index.js",
   "bin": {
