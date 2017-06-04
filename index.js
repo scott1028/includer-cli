@@ -14,8 +14,11 @@ if(argv.h || argv.help){
     -p, --prefix: include syntax prefix(default: @@), as @@include( PATH )
     -m, --match: replace to string from input regexp pattern(ex: -m \\.scss:.css).
 
-[Note]
-    no support global install. please use \`./node_modules/.bin/includer\`.
+[Usage]
+    $ includer -s src -d dist -w
+    $ includer -s src -d dist
+    $ includer -s src -d dist -t erb
+    $ includer -s src -d dist -m \\.scss:css
 `);
 };
 
