@@ -12,7 +12,7 @@
     -p, --prefix: include syntax prefix(default: @@), as @@include( PATH )
     -m, --match: replace to string from input regexp pattern(ex: -m \.scss:.css).
     -i, --indent: apply indent for include content(default: true).
-    -b, --binary: copy binary and empty folder to dist(default: false).
+    -b, --binary: copy binary and empty folder to dist at startup(default: false).
 
 [Note]
     $ yarn global add includer-cli

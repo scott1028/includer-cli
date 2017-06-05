@@ -64,9 +64,18 @@ gulp.task('include', function(){
         .on('end', function(){
             console.log(`=> Output has changed at ${(new Date).toString()}`.cyan);
         });
+});
 
+// main
+gulp.task('default', ['include'], function(){
+    gulp.watch(srcTpl.map(function(row){
+        if(row.startsWith(`!`))
+            return row.slice(1, row.length);
+        return row;
+    }), ['include']);
+
+    // copy only binary file or direcotry
     if(binary){
-        // copy only binary file or direcotry
         gulp.src(srcTpl)
             .pipe(isBinary())
             .pipe(through.obj(function(file, enc, next){
@@ -77,16 +86,7 @@ gulp.task('include', function(){
             }))
             .pipe(gulp.dest(`${distDir}`))
             .on('end', function(){
-                console.log(`=> Output:binary has changed at ${(new Date).toString()}`.cyan);
+                console.log(`=> Copied binaries at ${(new Date).toString()}`.yellow);
             });
     }
-});
-
-// main
-gulp.task('default', ['include'], function(){
-    gulp.watch(srcTpl.map(function(row){
-        if(row.startsWith(`!`))
-            return row.slice(1, row.length);
-        return row;
-    }), ['include']);
 });
