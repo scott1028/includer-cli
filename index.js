@@ -14,6 +14,7 @@ if(argv.h || argv.help){
     -p, --prefix: include syntax prefix(default: @@), as @@include( PATH )
     -m, --match: replace to string from input regexp pattern(ex: -m \\.scss:.css).
     -i, --indent: apply indent for include content(default: true).
+    -b, --binary: copy binary and empty folder to dist(default: false).
 
 [Usage]
     $ includer -s src -d dist -w

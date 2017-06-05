@@ -18,6 +18,7 @@ const tpl = argv.tpl || argv.t || 'tpl';
 const prefix = argv.prefix || argv.p || '@@';
 const match = (argv.match || argv.m || `use strict:use strict`).toString().split(`:`);
 const indent = eval(argv.indent || argv.i || 'true');
+const binary = eval(argv.binary || argv.b || 'false');
 
 // 
 let ext = `${tpl}`;
@@ -63,6 +64,22 @@ gulp.task('include', function(){
         .on('end', function(){
             console.log(`=> Output has changed at ${(new Date).toString()}`.cyan);
         });
+
+    if(binary){
+        // copy only binary file or direcotry
+        gulp.src(srcTpl)
+            .pipe(isBinary())
+            .pipe(through.obj(function(file, enc, next){
+                if(file.isBinary() || file.stat.isDirectory())
+                    next(null, file);
+                else
+                    return next();
+            }))
+            .pipe(gulp.dest(`${distDir}`))
+            .on('end', function(){
+                console.log(`=> Output has changed at ${(new Date).toString()}`.cyan);
+            });
+    }
 });
 
 // main
