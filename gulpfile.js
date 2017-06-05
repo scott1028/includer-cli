@@ -77,7 +77,7 @@ gulp.task('include', function(){
             }))
             .pipe(gulp.dest(`${distDir}`))
             .on('end', function(){
-                console.log(`=> Output has changed at ${(new Date).toString()}`.cyan);
+                console.log(`=> Output:binary has changed at ${(new Date).toString()}`.cyan);
             });
     }
 });
